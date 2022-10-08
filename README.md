@@ -32,6 +32,24 @@ GROUP BY from_date
 ORDER BY from_date ASC;
 
 
+## Summary
+
+- How many roles will need to be filled as the "silver tsunami" begins to make an impact? Put simply, 1,637 roles will need to be filled if PW wants to replace employees 1:1. The query we can run to figure out this number is below:
+
+SELECT DISTINCT ON (last_name) last_name FROM retirement_titles;
+
+Here, we are selecting each distinct last name from our retirement_titles table, which is already filtered to those who are retiring. If we scroll to the bottom of the table, we find this number in the index column.
+
+- Are there enough qualified, retirement-ready employees in the departments to mentor the next generation of Pewlett Hackard employees? Yes. As we saw above, there are 1,549 employees eligible for the mentorship program, which is roughly 95% of the employees who are retiring. This means that if PW hired one new employee for every employee retiring, almost all new employees would be able to have their own mentor, and their mentor each have their own employee. Here is the code to answer this question:
+
+SELECT COUNT(emp_no), emp_no FROM mentorship_eligibility
+GROUP BY emp_no;
+ 
+
+
+
+
+
 
 
 
